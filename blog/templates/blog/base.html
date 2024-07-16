@@ -21,7 +21,14 @@
 
   <body>
     <div class="page-header">
-      <h1 class="mt-5">Hello, Bootstrap!</h1>
+      {% if user.is_authenticated %}
+      <a href="{% url 'post_new' %}" class="top-menu"
+        ><span class="glyphicon glyphicon-plus"></span
+      ></a>
+      {% endif %}
+      <h1 class="mt-5">
+        <a href="{% url 'post_list' %}">Hello, Bootstrap!</a>
+      </h1>
       <p class="lead">This is a simple example of using Bootstrap.</p>
       <button type="button" class="btn btn-primary">Primary Button</button>
     </div>
