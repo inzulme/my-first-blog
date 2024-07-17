@@ -25,6 +25,21 @@
       <a href="{% url 'post_new' %}" class="top-menu"
         ><span class="glyphicon glyphicon-plus"></span
       ></a>
+      <a href="{% url 'post_draft_list' %}" class="top-menu"
+        ><span class="glyphicon glyphicon-edit"></span
+      ></a>
+      <p class="top-menu">
+        Hello {{ user.username }}
+        <small
+          ><form action="{% url 'logout' %}" method="post" class="top-menu">
+            {% csrf_token %}
+            <input type="submit" value="Log out" /></form
+        ></small>
+      </p>
+      {% else%}
+      <a href="{% url 'login' %}" class="top-menu"
+        ><span class="glyphicon glyphicon-lock"></span
+      ></a>
       {% endif %}
       <h1 class="mt-5">
         <a href="{% url 'post_list' %}">Hello, Bootstrap!</a>
